@@ -24,5 +24,38 @@
       <input type="text" placeholder="Search" class="input-box" />
       <i class="fa-solid fa-magnifying-glass" id="search-button"></i>
     </div>
+
+    <!-- not found div -->
+    <div class="error">
+      <div class="errorContent">
+        <span class="close" id="closeError">&times;</span>
+        <h2 id="errorTitle"></h2>
+        <p id="errorMsg"></p>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>
+          <span id="modalWord">word</span>
+          <span>
+            <i class="volumeBtn fa-solid fa-volume-high"
+              ><audio src="" id="phoneticAudio"></audio
+            ></i>
+          </span>
+          <span id="errorAudio"></span>
+        </h2>
+        <div class="para-group">
+          <p id="modalPhonetic"></p>
+          <div class="defination">
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
