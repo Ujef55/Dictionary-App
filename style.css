@@ -38,10 +38,8 @@ h1 {
 .search-box input {
   width: 24%;
   font-size: 20px;
-  text-transform: capitalize;
   font-family: "Josefin Sans", sans-serif;
   color: #000;
-  background-color: #e6f5fb;
   padding: 12px 16px;
   border-radius: 4px;
 }
@@ -69,4 +67,122 @@ h1 {
 .search-box i:hover {
   color: #fff;
   background-color: #8b64ff;
+  transition: 0.3s ease-in-out;
+}
+
+/* modal styling */
+.modal {
+  display: none;
+  z-index: 1;
+  width: 100%;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  max-width: 600px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.close:hover,
+.close:focus {
+  color: #333;
+  text-decoration: none;
+}
+
+h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.volumeBtn {
+  margin-left: 20px;
+  color: #b197fc;
+}
+
+.volumeBtn:hover {
+  color: #8b64ff;
+  cursor: pointer;
+}
+
+#modalWord {
+  color: #b197fc;
+  font: bold;
+}
+
+#modalPhonetic {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #9a9a9a;
+}
+
+.meaning {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+  /* margin-bottom: 30px; */
+}
+
+.example {
+  font-size: 0.9rem;
+  line-height: 1;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.defination {
+  margin-top: 30px;
+}
+
+.partOfSpeech {
+  text-decoration: underline;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+#modalOrigin {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+  margin-top: 30px;
+}
+
+/* error styling */
+
+.error {
+  z-index: 1;
+  width: 100%;
+}
+
+#errorAudio {
+  font-size: 0.9rem;
+  line-height: 1;
+  color: red;
+  margin-left: 20px;
+}
+
+.errorContent {
+  display: none;
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  max-width: 600px;
 }
