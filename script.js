@@ -13,7 +13,7 @@ const errorMsg = document.getElementById('errorMsg');
 const errorContent = document.querySelector('.errorContent');
 const volumeBtn = document.querySelector('.volumeBtn');
 const phoneticAudio = document.getElementById('phoneticAudio');
-const errorAudio = document.getElementById('errorAudio');
+const errorAudioSpan = document.getElementById('errorAudio');
 
 
 async function getFullDetails(word) {
@@ -32,15 +32,6 @@ async function getFullDetails(word) {
     } else {
         modal.style.display = 'block';
         errorContent.style.display = 'none';
-    }
-
-    let phoneticAudioUrl;
-    for (let i = 0; i < dictionaryData[0].phonetics.length; i++) {
-        if (dictionaryData[0].phonetics[i] && dictionaryData[0].phonetics[i].audio) {
-            phoneticAudioUrl = dictionaryData[0].phonetics[i].audio;
-            break;
-        }
-
     }
 
     try {
@@ -82,33 +73,32 @@ async function getFullDetails(word) {
         errorMsg.innerHTML = `${error}`;
     }
 
-
-
-    function playAudio(audioUrl) {
-        phoneticAudio.setAttribute('src', audioUrl);
-        phoneticAudio.play();
-        let hasError = false;
-        for (let i = 0; i < dictionaryData[0].phonetics.length; i++) {
-            if (dictionaryData[0].phonetics[i].audio === '') {
-                hasError = true;
-                break;
-            }
-        }
-
-        if (hasError) {
-            errorAudio.innerHTML = "Sorry, Can't find the audio for this word";
-            setTimeout(() => {
-                errorAudio.innerHTML = '';
-            }, 2000);
+    let phoneticAudioUrl;
+    for (let i = 0; i < dictionaryData[0].phonetics.length; i++) {
+        if (dictionaryData[0].phonetics[i].audio) {
+            phoneticAudioUrl = dictionaryData[0].phonetics[i].audio;
+            break;
         }
     }
 
+    function playAudio(audioUrl) {
+        if (!audioUrl) {
+            errorAudioSpan.innerHTML = 'The audio is not available for this word';
+            setTimeout(function () {
+                errorAudioSpan.innerHTML = '';
+            }, 2000);
+        } else {
+            errorAudioSpan.innerHTML = '';
+            phoneticAudio.setAttribute('src', audioUrl);
+            phoneticAudio.play();
+        }
+    }
 
     volumeBtn.addEventListener('click', () => {
         playAudio(phoneticAudioUrl);
     });
-
 }
+
 
 
 searchButton.addEventListener('click', () => {
