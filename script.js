@@ -84,6 +84,7 @@ async function getFullDetails(word) {
     function playAudio(audioUrl) {
         if (!audioUrl) {
             errorAudioSpan.innerHTML = 'The audio is not available for this word';
+            phoneticAudio.setAttribute('src', '');
             setTimeout(function () {
                 errorAudioSpan.innerHTML = '';
             }, 2000);
